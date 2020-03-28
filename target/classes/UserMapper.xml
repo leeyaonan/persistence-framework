@@ -1,0 +1,16 @@
+<mapper namespace="user">
+
+    <!--sql的唯一标识：namespace.id： statementId-->
+    <select id="selectList" resultType="com.leeyaonan.pojo.User">
+        select * from `user`
+    </select>
+    <!--
+        面向对象的思想
+        User user = new User();
+        user.setId(1);
+        user.setUsername("leeyaonan");
+    -->
+    <select id="selectOne" resultType="com.leeyaonan.pojo.User">
+        select * from `user` where id = #{id} and username = #{username}
+    </select>
+</mapper>
