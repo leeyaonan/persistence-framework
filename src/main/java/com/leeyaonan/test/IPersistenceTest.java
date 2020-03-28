@@ -6,5 +6,6 @@ import java.io.InputStream;
 public class IPersistenceTest {
     private void test() {
         InputStream inputStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+
     }
 }
