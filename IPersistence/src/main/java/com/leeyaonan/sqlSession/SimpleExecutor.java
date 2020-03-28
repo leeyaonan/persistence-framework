@@ -7,9 +7,14 @@ import com.leeyaonan.utils.GenericTokenParser;
 import com.leeyaonan.utils.ParameterMapping;
 import com.leeyaonan.utils.ParameterMappingTokenHandler;
 
+import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SimpleExecutor implements Executor {
@@ -37,7 +42,7 @@ public class SimpleExecutor implements Executor {
         Class<?> parameterTypeClass = getClassType(parameterType);
         List<ParameterMapping> parameterMappingList = boundSql.getParameterMappingList();
         for (int i = 0; i < parameterMappingList.size(); i++) {
-            ParameterMapping parameterMapping = parameterMappingList.get(0);
+            ParameterMapping parameterMapping = parameterMappingList.get(i);
             String content = parameterMapping.getContent();
 
             // 反射
@@ -52,8 +57,31 @@ public class SimpleExecutor implements Executor {
 
 
         // 5. 执行sql
+        ResultSet resultSet = preparedStatement.executeQuery();
+        String resultType = mappedStatement.getResultType();
+        Class<?> resultTypeClass = getClassType(resultType);
+        Object o = resultTypeClass.newInstance();
+        ArrayList<Object> objects = new ArrayList<>();
 
         // 6. 封装返回结果集
+        while (resultSet.next()) {
+            // 元数据
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            // 注意这里从i=1开始
+            for (int i = 1; i <= metaData.getColumnCount(); i++) {
+                // 字段名
+                String columnName = metaData.getColumnName(i);
+                // 字段的值
+                Object value = resultSet.getObject(columnName);
+
+                // 使用反射、内省，根据数据库和实体的对应关系，完成封装
+                PropertyDescriptor propertyDescriptor = new PropertyDescriptor(columnName, resultTypeClass);
+                Method writeMethod = propertyDescriptor.getWriteMethod();
+                writeMethod.invoke(o, value);
+
+            }
+            objects.add(o);
+        }
     }
 
     private Class<?> getClassType(String parameterType) throws ClassNotFoundException {
