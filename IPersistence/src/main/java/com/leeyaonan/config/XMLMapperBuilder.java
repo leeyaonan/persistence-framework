@@ -19,8 +19,10 @@ public class XMLMapperBuilder {
     }
 
     public void parse(InputStream inputStream) throws DocumentException {
+
         Document document = new SAXReader().read(inputStream);
         Element rootElement = document.getRootElement();
+
         String namespace = rootElement.attributeValue("namespace");
 
         List<Element> list = rootElement.selectNodes("//select");

@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30b00191-0d33-454a-90d9-7cf9f7808e14" name="Default Changelist" comment="" />
+    <list default="true" id="30b00191-0d33-454a-90d9-7cf9f7808e14" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/config/XMLConfigBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/config/XMLConfigBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/config/XMLMapperBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/config/XMLMapperBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/pojo/MappedStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/pojo/MappedStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/DefaultSqlSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/DefaultSqlSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/DefaultSqlSessionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/DefaultSqlSessionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SimpleExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SimpleExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SqlSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SqlSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SqlSessionFactoryBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SqlSessionFactoryBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leeyaonan/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leeyaonan/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leeyaonan/test/IPersistenceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leeyaonan/test/IPersistenceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sqlMapConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlMapConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sqlMapConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sqlMapConfig.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +85,29 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="IPersistenceTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IPersistence_Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.leeyaonan.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.leeyaonan.test" />
+      <option name="MAIN_CLASS_NAME" value="com.leeyaonan.test.IPersistenceTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.IPersistenceTest.test" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -79,7 +118,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585326726553</updated>
-      <workItem from="1585326730467" duration="14882000" />
+      <workItem from="1585326730467" duration="18786000" />
     </task>
     <servers />
   </component>
@@ -96,5 +135,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SimpleExecutor.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SimpleExecutor.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -50,6 +50,7 @@ public class XMLConfigBuilder {
 
         // mapper.xml解析 : 拿到路径 -- 字节输入流 -- dom4j进行解析
         List<Element> mapperList = rootElement.selectNodes("//mapper");
+
         for (Element element : mapperList) {
             //每个element就是一个mapper标签
             String mapperPath = element.attributeValue("resource");

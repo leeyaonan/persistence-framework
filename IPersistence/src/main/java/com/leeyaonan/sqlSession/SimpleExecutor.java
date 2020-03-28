@@ -36,6 +36,7 @@ public class SimpleExecutor implements Executor {
             // 获取到了参数的全路径
         String parameterType = mappedStatement.getParameterType();
         Class<?> parameterTypeClass = getClassType(parameterType);
+
         List<ParameterMapping> parameterMappingList = boundSql.getParameterMappingList();
         for (int i = 0; i < parameterMappingList.size(); i++) {
             ParameterMapping parameterMapping = parameterMappingList.get(i);
@@ -56,11 +57,12 @@ public class SimpleExecutor implements Executor {
         ResultSet resultSet = preparedStatement.executeQuery();
         String resultType = mappedStatement.getResultType();
         Class<?> resultTypeClass = getClassType(resultType);
-        Object o = resultTypeClass.newInstance();
+
         ArrayList<Object> objects = new ArrayList<>();
 
         // 6. 封装返回结果集
         while (resultSet.next()) {
+            Object o = resultTypeClass.newInstance();
             // 元数据
             ResultSetMetaData metaData = resultSet.getMetaData();
             // 注意这里从i=1开始
@@ -74,7 +76,6 @@ public class SimpleExecutor implements Executor {
                 PropertyDescriptor propertyDescriptor = new PropertyDescriptor(columnName, resultTypeClass);
                 Method writeMethod = propertyDescriptor.getWriteMethod();
                 writeMethod.invoke(o, value);
-
             }
             objects.add(o);
         }
