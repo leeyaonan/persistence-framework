@@ -10,10 +10,7 @@ import com.leeyaonan.utils.ParameterMappingTokenHandler;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +19,8 @@ public class SimpleExecutor implements Executor {
     /**
      * 在query方法中编写JDBC代码
      */
-    @lombok.SneakyThrows
     @Override
-    public <E> List<E> query(Configuration configuration, MappedStatement mappedStatement, Object... params) {
+    public <E> List<E> query(Configuration configuration, MappedStatement mappedStatement, Object... params) throws Exception {
         // 1. 注册驱动，获取连接
         Connection connection = configuration.getDataSource().getConnection();
 
@@ -82,6 +78,7 @@ public class SimpleExecutor implements Executor {
             }
             objects.add(o);
         }
+        return (List<E>) objects;
     }
 
     private Class<?> getClassType(String parameterType) throws ClassNotFoundException {
