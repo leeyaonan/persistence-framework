@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30b00191-0d33-454a-90d9-7cf9f7808e14" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/leeyaonan/dao/IUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/leeyaonan/dao/UserDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/config/BoundSql.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/config/BoundSql.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SqlSessionFactoryBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SqlSessionFactoryBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IPersistence/target/IPersistence-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/target/IPersistence-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IPersistence/target/classes/com/leeyaonan/sqlSession/SqlSessionFactoryBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/target/classes/com/leeyaonan/sqlSession/SqlSessionFactoryBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IPersistence/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IPersistence/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IPersistence/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/leeyaonan/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leeyaonan/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/leeyaonan/test/IPersistenceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leeyaonan/test/IPersistenceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/leeyaonan/pojo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leeyaonan/pojo/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/leeyaonan/test/IPersistenceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leeyaonan/test/IPersistenceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +125,7 @@
       <updated>1585326726553</updated>
       <workItem from="1585326730467" duration="20120000" />
       <workItem from="1585415988120" duration="4001000" />
-      <workItem from="1585448818110" duration="75000" />
+      <workItem from="1585448818110" duration="2368000" />
     </task>
     <servers />
   </component>
