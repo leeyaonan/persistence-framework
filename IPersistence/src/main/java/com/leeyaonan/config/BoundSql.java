@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BoundSql {
 
-    private String sqlText;
+    private String sqlText;// 解析过后的sql
 
     private List<ParameterMapping> parameterMappingList = new ArrayList<>();
 
