@@ -26,18 +26,15 @@ public class UserDaoImpl implements IUserDao {
     }
 
     @Override
-    public User findByCondition() throws Exception {
+    public User findByCondition(User user) throws Exception {
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
         // 调用
-        User user = new User();
-        user.setId(1);
-        user.setUsername("张三");
         User result = sqlSession.selectOne("user.selectOne", user);
         System.out.println(result);
 
-        return user;
+        return result;
     }
 }

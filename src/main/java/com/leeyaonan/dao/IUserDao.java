@@ -10,5 +10,5 @@ public interface IUserDao {
     List<User> findAll() throws Exception;
 
     // 根据条件进行查询
-    User findByCondition() throws Exception;
+    User findByCondition(User user) throws Exception;
 }

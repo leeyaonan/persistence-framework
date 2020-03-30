@@ -1,5 +1,6 @@
 package com.leeyaonan.test;
 
+import com.leeyaonan.dao.IUserDao;
 import com.leeyaonan.io.Resources;
 import com.leeyaonan.pojo.User;
 import com.leeyaonan.sqlSession.SqlSession;
@@ -32,6 +33,22 @@ public class IPersistenceTest {
         for (User user1 : users) {
             System.out.println(user1);
         }
+    }
+
+    @Test
+    public void testProxy() throws Exception {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        IUserDao userDao = sqlSession.getMapper(IUserDao.class);
+        List<User> all = userDao.findAll();
+        for (User user : all) {
+            System.out.println(user);
+        }
+        User user = userDao.findByCondition(new User(1, "张三"));
+        System.out.println(user);
+
     }
 
     @Test
