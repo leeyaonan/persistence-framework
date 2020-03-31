@@ -23,6 +23,6 @@
     </update>
 
     <delete id="delete" parameterType="com.leeyaonan.pojo.User">
-        delete from `user` where `id` = #{id} and `username` = #{username}
+        delete from `user` where `id` = #{id}
     </delete>
 </mapper>

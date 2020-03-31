@@ -115,7 +115,6 @@ public class SimpleExecutor implements Executor {
 
         }
 
-
         // 5. 执行sql
         preparedStatement.execute();
     }

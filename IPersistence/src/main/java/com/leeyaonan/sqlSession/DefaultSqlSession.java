@@ -78,27 +78,31 @@ public class DefaultSqlSession implements SqlSession {
 
                 if (methodName.contains("insert")) {
                     insert(statementId, args);
-                    return null;
-                } else if (methodName.contains("update")) {
+                }
+
+                if (methodName.contains("update")) {
                     update(statementId, args);
-                    return null;
-                } else if (methodName.contains("delete")) {
+                }
+
+                if (methodName.contains("delete")) {
                     delete(statementId, args);
-                    return null;
                 }
 
-                // 准备参数
-                //      2. params：args
+                if (methodName.contains("find")) {
+                    // 准备参数
+                    //      2. params：args
 
-                // 判断使用selectList还是selectOne
-                // 获取被调用方法的返回值类型
-                Type genericReturnType = method.getGenericReturnType();
-                // 判断是否进行了 泛型类型参数化
-                if (genericReturnType instanceof ParameterizedType) {
-                    List<Object> objects = selectList(statementId, args);
-                    return objects;
+                    // 判断使用selectList还是selectOne
+                    // 获取被调用方法的返回值类型
+                    Type genericReturnType = method.getGenericReturnType();
+                    // 判断是否进行了 泛型类型参数化
+                    if (genericReturnType instanceof ParameterizedType) {
+                        List<Object> objects = selectList(statementId, args);
+                        return objects;
+                    }
+                    return selectOne(statementId, args);
                 }
-                return selectOne(statementId, args);
+                return null;
             }
         });
         return (T) proxyInstance;

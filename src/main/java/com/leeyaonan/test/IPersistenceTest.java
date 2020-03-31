@@ -25,11 +25,13 @@ public class IPersistenceTest {
 
         // 增加接口
         User user = new User();
-        user.setId(3);
+        user.setId(5);
         user.setUsername("做作业的小朋友");
         userDao.insert(user);
-        this.checkResult();
-
+        List<User> users = userDao.findAll();
+        for (User u : users) {
+            System.out.println(u);
+        }
     }
 
     @Test
@@ -37,11 +39,13 @@ public class IPersistenceTest {
         IUserDao userDao = this.sqlSession.getMapper(IUserDao.class);
 
         User user = new User();
-        user.setId(3);
+        user.setId(5);
         user.setUsername("做完作业真舒乎！");
         userDao.update(user);
-        this.checkResult();
-
+        List<User> users = userDao.findAll();
+        for (User u : users) {
+            System.out.println(u);
+        }
     }
 
     @Test
@@ -49,18 +53,13 @@ public class IPersistenceTest {
         IUserDao userDao = this.sqlSession.getMapper(IUserDao.class);
 
         User user = new User();
-        user.setId(3);
+        user.setId(5);
 
         // 删除接口
         userDao.delete(user);
-        this.checkResult();
-
-    }
-
-    private void checkResult() throws Exception {
-        List<User> users = sqlSession.selectList("user.selectList");
-        for (User user1 : users) {
-            System.out.println(user1);
+        List<User> users = userDao.findAll();
+        for (User u : users) {
+            System.out.println(u);
         }
     }
 
