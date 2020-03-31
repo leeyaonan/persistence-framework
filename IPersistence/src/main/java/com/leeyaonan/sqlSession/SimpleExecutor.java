@@ -82,6 +82,120 @@ public class SimpleExecutor implements Executor {
         return (List<E>) objects;
     }
 
+    @Override
+    public void insert(Configuration configuration, MappedStatement mappedStatement, Object... params) throws Exception {
+        // 1. 注册驱动，获取连接
+        Connection connection = configuration.getDataSource().getConnection();
+
+        // 2. 获取sql语句：insert into `user` (`id`, `username`) values (#{id}, #{username})
+        // 2.1 转换sql语句：insert into `user` (`id`, `username`) values (?, ?)
+        String sql = mappedStatement.getSql();
+        BoundSql boundSql = getBoundSql(sql);
+
+        // 3. 获取预处理对象：preparedStatement
+        PreparedStatement preparedStatement = connection.prepareStatement(boundSql.getSqlText());
+
+        // 4. 设置参数
+        // 获取到了参数的全路径
+        String parameterType = mappedStatement.getParameterType();
+        Class<?> parameterTypeClass = getClassType(parameterType);
+
+        List<ParameterMapping> parameterMappingList = boundSql.getParameterMappingList();
+        for (int i = 0; i < parameterMappingList.size(); i++) {
+            ParameterMapping parameterMapping = parameterMappingList.get(i);
+            String content = parameterMapping.getContent();
+
+            // 反射
+            Field declaredField = parameterTypeClass.getDeclaredField(content);
+            // 暴力访问
+            declaredField.setAccessible(true);
+            Object o = declaredField.get(params[0]);
+
+            preparedStatement.setObject(i + 1, o);
+
+        }
+
+
+        // 5. 执行sql
+        preparedStatement.execute();
+    }
+
+    @Override
+    public void update(Configuration configuration, MappedStatement mappedStatement, Object... params) throws Exception {
+        // 1. 注册驱动，获取连接
+        Connection connection = configuration.getDataSource().getConnection();
+
+        // 2. 获取sql语句：update `user` set `id` = #{id}, `username` = #{username} where `id` = #{id}
+        // 2.1 转换sql语句：update `user` set `username` = ? where `id` = ?
+        String sql = mappedStatement.getSql();
+        BoundSql boundSql = getBoundSql(sql);
+
+        // 3. 获取预处理对象：preparedStatement
+        PreparedStatement preparedStatement = connection.prepareStatement(boundSql.getSqlText());
+
+        // 4. 设置参数
+        // 获取到了参数的全路径
+        String parameterType = mappedStatement.getParameterType();
+        Class<?> parameterTypeClass = getClassType(parameterType);
+
+        List<ParameterMapping> parameterMappingList = boundSql.getParameterMappingList();
+        for (int i = 0; i < parameterMappingList.size(); i++) {
+            ParameterMapping parameterMapping = parameterMappingList.get(i);
+            String content = parameterMapping.getContent();
+
+            // 反射
+            Field declaredField = parameterTypeClass.getDeclaredField(content);
+            // 暴力访问
+            declaredField.setAccessible(true);
+            Object o = declaredField.get(params[0]);
+
+            preparedStatement.setObject(i + 1, o);
+
+        }
+
+
+        // 5. 执行sql
+        preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public void delete(Configuration configuration, MappedStatement mappedStatement, Object... params) throws Exception {
+        // 1. 注册驱动，获取连接
+        Connection connection = configuration.getDataSource().getConnection();
+
+        // 2. 获取sql语句：delete from `user` where `id` = #{id} and `username` = #{username}
+        // 2.1 转换sql语句：delete from `user` where `id` = ? and `username` = ?
+        String sql = mappedStatement.getSql();
+        BoundSql boundSql = getBoundSql(sql);
+
+        // 3. 获取预处理对象：preparedStatement
+        PreparedStatement preparedStatement = connection.prepareStatement(boundSql.getSqlText());
+
+        // 4. 设置参数
+        // 获取到了参数的全路径
+        String parameterType = mappedStatement.getParameterType();
+        Class<?> parameterTypeClass = getClassType(parameterType);
+
+        List<ParameterMapping> parameterMappingList = boundSql.getParameterMappingList();
+        for (int i = 0; i < parameterMappingList.size(); i++) {
+            ParameterMapping parameterMapping = parameterMappingList.get(i);
+            String content = parameterMapping.getContent();
+
+            // 反射
+            Field declaredField = parameterTypeClass.getDeclaredField(content);
+            // 暴力访问
+            declaredField.setAccessible(true);
+            Object o = declaredField.get(params[0]);
+
+            preparedStatement.setObject(i + 1, o);
+
+        }
+
+
+        // 5. 执行sql
+        preparedStatement.execute();
+    }
+
     private Class<?> getClassType(String parameterType) throws ClassNotFoundException {
         if (null != parameterType) {
             Class<?> aClass = Class.forName(parameterType);

@@ -36,6 +36,27 @@ public class DefaultSqlSession implements SqlSession {
     }
 
     @Override
+    public void insert(String statementId, Object... params) throws Exception {
+        SimpleExecutor simpleExecutor = new SimpleExecutor();
+        MappedStatement mappedStatement = configuration.getMappedStatementMap().get(statementId);
+        simpleExecutor.insert(configuration, mappedStatement, params);
+    }
+
+    @Override
+    public void update(String statementId, Object... params) throws Exception {
+        SimpleExecutor simpleExecutor = new SimpleExecutor();
+        MappedStatement mappedStatement = configuration.getMappedStatementMap().get(statementId);
+        simpleExecutor.update(configuration, mappedStatement, params);
+    }
+
+    @Override
+    public void delete(String statementId, Object... params) throws Exception {
+        SimpleExecutor simpleExecutor = new SimpleExecutor();
+        MappedStatement mappedStatement = configuration.getMappedStatementMap().get(statementId);
+        simpleExecutor.delete(configuration, mappedStatement, params);
+    }
+
+    @Override
     public <T> T getMapper(Class<?> mapperClass) {
         // 使用jdk动态代理，为Dao层接口生成代理对象，并返回
         Object proxyInstance = Proxy.newProxyInstance(DefaultSqlSession.class.getClassLoader(), new Class[]{mapperClass}, new InvocationHandler() {
@@ -54,6 +75,17 @@ public class DefaultSqlSession implements SqlSession {
                 String className = method.getDeclaringClass().getName();
 
                 String statementId = className + "." + methodName;
+
+                if (methodName.contains("insert")) {
+                    insert(statementId, args);
+                    return null;
+                } else if (methodName.contains("update")) {
+                    update(statementId, args);
+                    return null;
+                } else if (methodName.contains("delete")) {
+                    delete(statementId, args);
+                    return null;
+                }
 
                 // 准备参数
                 //      2. params：args

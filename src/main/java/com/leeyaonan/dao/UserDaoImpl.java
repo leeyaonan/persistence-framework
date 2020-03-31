@@ -9,8 +9,7 @@ import com.leeyaonan.sqlSession.SqlSessionFactoryBuilder;
 import java.io.InputStream;
 import java.util.List;
 
-public class UserDaoImpl implements IUserDao {
-    @Override
+public class UserDaoImpl {
     public List<User> findAll() throws Exception {
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
@@ -25,7 +24,6 @@ public class UserDaoImpl implements IUserDao {
         return users;
     }
 
-    @Override
     public User findByCondition(User user) throws Exception {
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);

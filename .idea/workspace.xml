@@ -4,13 +4,16 @@
     <list default="true" id="30b00191-0d33-454a-90d9-7cf9f7808e14" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/DefaultSqlSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/DefaultSqlSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/Executor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SimpleExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SimpleExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SqlSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SqlSession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/leeyaonan/dao/IUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leeyaonan/dao/IUserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/leeyaonan/dao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leeyaonan/dao/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/leeyaonan/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leeyaonan/pojo/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/leeyaonan/test/IPersistenceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leeyaonan/test/IPersistenceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/leeyaonan/pojo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leeyaonan/pojo/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/leeyaonan/dao/IUserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leeyaonan/dao/IUserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/leeyaonan/dao/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leeyaonan/dao/UserDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/leeyaonan/test/IPersistenceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leeyaonan/test/IPersistenceTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,12 +63,16 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\PersonalFiles\CodeLib\IPersistence_Test\IPersistence\src\main\java\com\leeyaonan" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PersonalFiles\CodeLib\IPersistence_Test\src\main\resources" />
+      <recent name="D:\PersonalFiles\CodeLib\IPersistence_Test\src\main\resources\com\leeyaonan\dao" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.leeyaonan.config" />
       <recent name="com.leeyaonan.sqlSession" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PersonalFiles\CodeLib\IPersistence_Test\IPersistence\src\main\java\com\leeyaonan" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -80,7 +87,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.IPersistenceTest.testProxy">
+  <component name="RunManager" selected="JUnit.IPersistenceTest.testInsertAndUpdateAndDelete">
     <configuration name="IPersistenceTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="IPersistence_Test" />
       <extension name="coverage">
@@ -92,6 +99,22 @@
       <option name="PACKAGE_NAME" value="com.leeyaonan.test" />
       <option name="MAIN_CLASS_NAME" value="com.leeyaonan.test.IPersistenceTest" />
       <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IPersistenceTest.testInsertAndUpdateAndDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IPersistence_Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.leeyaonan.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.leeyaonan.test" />
+      <option name="MAIN_CLASS_NAME" value="com.leeyaonan.test.IPersistenceTest" />
+      <option name="METHOD_NAME" value="testInsertAndUpdateAndDelete" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -131,6 +154,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.IPersistenceTest.testInsertAndUpdateAndDelete" />
         <item itemvalue="JUnit.IPersistenceTest.testProxy" />
         <item itemvalue="JUnit.IPersistenceTest.test" />
         <item itemvalue="JUnit.IPersistenceTest.testJDBC" />
@@ -149,7 +173,8 @@
       <updated>1585326726553</updated>
       <workItem from="1585326730467" duration="20120000" />
       <workItem from="1585415988120" duration="4001000" />
-      <workItem from="1585448818110" duration="7082000" />
+      <workItem from="1585448818110" duration="8528000" />
+      <workItem from="1585575777911" duration="3225000" />
     </task>
     <servers />
   </component>
@@ -172,11 +197,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/SimpleExecutor.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/IPersistence/src/main/java/com/leeyaonan/sqlSession/DefaultSqlSession.java</url>
           <line>21</line>

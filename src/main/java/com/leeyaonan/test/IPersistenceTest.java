@@ -7,6 +7,7 @@ import com.leeyaonan.sqlSession.SqlSession;
 import com.leeyaonan.sqlSession.SqlSessionFactory;
 import com.leeyaonan.sqlSession.SqlSessionFactoryBuilder;
 import org.dom4j.DocumentException;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.beans.PropertyVetoException;
@@ -15,6 +16,44 @@ import java.sql.*;
 import java.util.List;
 
 public class IPersistenceTest {
+    private SqlSession sqlSession;
+
+
+    @Test
+    public void testInsertAndUpdateAndDelete() throws Exception {
+        IUserDao userDao = this.sqlSession.getMapper(IUserDao.class);
+
+        // 增加接口
+        User user = new User();
+        user.setId(3);
+        user.setUsername("做作业的小朋友");
+        userDao.insert(user);
+        this.checkResult();
+
+        // 修改接口
+        user.setUsername("做完作业真舒乎！");
+        userDao.update(user);
+        this.checkResult();
+
+        // 删除接口
+        userDao.delete(user);
+        this.checkResult();
+
+    }
+
+    private void checkResult() throws Exception {
+        List<User> users = sqlSession.selectList("user.selectList");
+        for (User user1 : users) {
+            System.out.println(user1);
+        }
+    }
+
+    @Before
+    public void init() throws Exception {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        this.sqlSession = sqlSessionFactory.openSession();
+    }
 
     @Test
     public void test() throws Exception {
