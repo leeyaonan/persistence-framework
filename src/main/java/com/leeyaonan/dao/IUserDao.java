@@ -13,11 +13,11 @@ public interface IUserDao {
     User findByCondition(User user) throws Exception;
 
     // 插入新用户
-    void insert(User user);
+    void insert(User user) throws Exception;
 
     // 修改用户
-    void update(User user);
+    void update(User user) throws Exception;
 
     // 删除用户
-    void delete(User user);
+    void delete(User user) throws Exception;
 }

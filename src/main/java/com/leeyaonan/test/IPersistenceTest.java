@@ -20,7 +20,7 @@ public class IPersistenceTest {
 
 
     @Test
-    public void testInsertAndUpdateAndDelete() throws Exception {
+    public void testInsert() throws Exception {
         IUserDao userDao = this.sqlSession.getMapper(IUserDao.class);
 
         // 增加接口
@@ -30,10 +30,26 @@ public class IPersistenceTest {
         userDao.insert(user);
         this.checkResult();
 
-        // 修改接口
+    }
+
+    @Test
+    public void testUpdate() throws Exception {
+        IUserDao userDao = this.sqlSession.getMapper(IUserDao.class);
+
+        User user = new User();
+        user.setId(3);
         user.setUsername("做完作业真舒乎！");
         userDao.update(user);
         this.checkResult();
+
+    }
+
+    @Test
+    public void testDelete() throws Exception {
+        IUserDao userDao = this.sqlSession.getMapper(IUserDao.class);
+
+        User user = new User();
+        user.setId(3);
 
         // 删除接口
         userDao.delete(user);
@@ -76,9 +92,9 @@ public class IPersistenceTest {
 
     @Test
     public void testProxy() throws Exception {
-        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+//        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+//        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+//        SqlSession sqlSession = sqlSessionFactory.openSession();
 
         IUserDao userDao = sqlSession.getMapper(IUserDao.class);
         List<User> all = userDao.findAll();

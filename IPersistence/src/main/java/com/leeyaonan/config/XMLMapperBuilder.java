@@ -25,7 +25,18 @@ public class XMLMapperBuilder {
 
         String namespace = rootElement.attributeValue("namespace");
 
-        List<Element> list = rootElement.selectNodes("//select");
+        List<Element> selectList = rootElement.selectNodes("//select");
+        this.parseMappedStatement(namespace, selectList);
+        List<Element> insertList = rootElement.selectNodes("//insert");
+        this.parseMappedStatement(namespace, insertList);
+        List<Element> updateList = rootElement.selectNodes("//update");
+        this.parseMappedStatement(namespace, updateList);
+        List<Element> deleteList = rootElement.selectNodes("//delete");
+        this.parseMappedStatement(namespace, deleteList);
+
+    }
+
+    private void parseMappedStatement(String namespace, List<Element> list) {
         for (Element element : list) {
             String id = element.attributeValue("id");
             String resultType = element.attributeValue("resultType");
